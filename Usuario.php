@@ -4,7 +4,6 @@ class Usuario implements IUsuario{
     private $nome;
     private $datadenascimento;
     private $email;
-    private $nomeusuario;
     private $foto;
     private $endereco;
 
@@ -34,13 +33,6 @@ class Usuario implements IUsuario{
     }
     public function setEmail($email) {
         $this->email = $email;
-        return $this;
-    }
-    public function getNomeUsuario() {
-        return $this->nomeusuario;
-    }
-    public function setNomeUsuario($nomeusuario) { 
-        $this->nomeusuario = $nomeusuario;
         return $this;
     }
     public function getFoto(){
