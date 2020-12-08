@@ -11,10 +11,10 @@
       $this->user = $user;
     }
 
-    public function save(){
+    public function save() {
       $query = "insert into users (`name`,`birthdate`,`email`,`photo`,`address`) 
-                VALUES (:name,:birthdate,:email,:photo,:address)";
-      
+            VALUES (:name,:birthdate,:email,:photo,:address)";
+  
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(":name", $this->user->getName());
       $stmt->bindValue(":birthdate", $this->user->getBirthDate());

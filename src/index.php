@@ -4,27 +4,39 @@
   require_once "models/User.php";
   require_once "services/PetService.php";
   require_once "services/UserService.php";
+  require_once "./services/ImageUpload.php";
 
   $db = new Conn('localhost','pets','root', '');
 
-  $user = new User;
-  $user->setName("Junior");
-  $user->setBirthDate("10/20/2001");
-  $user->setEmail("oooooo");
-  $user->setPhoto("texto");
-  $user->setAddress("Cana brava");
-  print_r($user);
+  $imagePath = upload();
+  
+  if ($imagePath !== '') {
+    $name = $_POST['name'];
+    $birthDate = $_POST['birthDate'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
 
-  $service = new UserService($db, $user);
-  $userId = $service->save();
+    $user = new User;
+    $user->setName($name);
+    $user->setBirthDate($birthDate);
+    $user->setEmail($email);
+    $user->setPhoto($imagePath);
+    $user->setAddress($address);
+    print_r($user->getPhoto());
 
-  $pet = new Pet;
-  $pet->setPhoto("texto");
-  $pet->setName("Junior");
-  $pet->setDescription("oooooo");
-  $pet->setType("Cana brava");
-  $pet->setUserId($userId);
+    $service = new UserService($db, $user);
+    $userId = $service->save();
+  } else {
+    echo 'Falha ao salvar imagem.';
+  }
 
-  $service = new PetService($db, $pet);
-  print_r($service->save());
+  // $pet = new Pet;
+  // $pet->setPhoto("texto");
+  // $pet->setName("Junior");
+  // $pet->setDescription("oooooo");
+  // $pet->setType("Cana brava");
+  // $pet->setUserId($userId);
+
+  // $service = new PetService($db, $pet);
+  // print_r($service->save());
 ?>
