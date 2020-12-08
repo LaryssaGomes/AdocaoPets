@@ -24,16 +24,12 @@
 
 aside {
   flex: 1;
-  background: url("../assets/adote.jpg") no-repeat center;
+  background: url("../assets/pet.jpg") no-repeat center;
   background-size: cover;
 }
-/* 
-@media (min-width: 600px) {
-  #signup main {
-    max-width: 800px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 16px 18px;
-    border: 1px solid rgb(168, 170, 170);
-  }
-} */
+
+.link {
+  font-weight: bold;
+  color: #49b7c6;
+  margin-top: 16px;
+}
