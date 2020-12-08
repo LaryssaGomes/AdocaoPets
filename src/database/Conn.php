@@ -1,5 +1,5 @@
 <?php
-  require_once "domain/IConn.php";
+  require_once "../domain/IConn.php";
 
   class Conn implements IConn {
     private $host;

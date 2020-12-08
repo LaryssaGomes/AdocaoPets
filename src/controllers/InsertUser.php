@@ -1,7 +1,7 @@
 <?php
-  require_once "database/Conn.php";
-  require_once "models/User.php";
-  require_once "services/UserService.php";
+  require_once "../database/Conn.php";
+  require_once "../models/User.php";
+  require_once "../services/UserService.php";
   require_once "../services/ImageUpload.php";
 
   $db = new Conn('localhost','pets','root', '');

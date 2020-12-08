@@ -32,14 +32,4 @@
   } else {
     echo 'Falha ao salvar imagem.';
   }
-
-  // $pet = new Pet;
-  // $pet->setPhoto("texto");
-  // $pet->setName("Junior");
-  // $pet->setDescription("oooooo");
-  // $pet->setType("Cana brava");
-  // $pet->setUserId($userId);
-
-  // $service = new PetService($db, $pet);
-  // print_r($service->save());
 ?>

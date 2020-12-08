@@ -1,5 +1,5 @@
 <?php
-  require_once "domain/IPet.php";
+  require_once "../domain/IPet.php";
   
   class Pet implements IPet {
     private $id;

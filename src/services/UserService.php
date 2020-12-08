@@ -1,6 +1,6 @@
 <?php
-  require_once "domain/IConn.php";
-  require_once "domain/IUser.php";
+  require_once "../domain/IConn.php";
+  require_once "../domain/IUser.php";
 
   class UserService {
     private $db;

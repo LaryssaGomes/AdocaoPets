@@ -1,6 +1,6 @@
 <?php
-  require_once "domain/IConn.php";
-  require_once "domain/IPet.php";
+  require_once "../domain/IConn.php";
+  require_once "../domain/IPet.php";
 
   class PetService {
     private $db;

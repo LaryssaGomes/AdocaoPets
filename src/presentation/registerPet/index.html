@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/global.css" rel="stylesheet" />
+    <link href="signup-styles.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <title>Cadastrar Pet</title>
+  </head>
+  <body>
+    <div id="signup">
+      <main>
+        <h1>Adote.</h1>
+        <form
+          action="../../controllers/InsertPet.php"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="input-block">
+            <label for="photo">Foto do pet:</label>
+            <input type="file" name="photo" id="photo" />
+          </div>
+          <div class="input-block">
+            <label for="name">Nome do pet:</label>
+            <input type="text" placeholder="Doguinho" name="name" id="name" />
+          </div>
+          <div class="input-block">
+            <label for="description">Descrição:</label>
+            <input
+              type="text"
+              placeholder="Fale sobre ele"
+              name="description"
+              id="description"
+            />
+          </div>
+          <div class="input-block">
+            <label for="type">Tipo:</label>
+            <select name="type" id="type">
+              <option value="">Selecione um tipo</option>
+              <option value="dog">Doguinho</option>
+              <option value="cat">Gatinho</option>
+              <option value="bird">Passarinho</option>
+            </select>
+          </div>
+          <div class="input-block">
+            <label for="userId">Id do usuário:</label>
+            <input
+              type="number"
+              placeholder="Id do usuário"
+              name="userId"
+              id="userId"
+            />
+          </div>
+          <button class="form-btn" type="submit">Cadastrar</button>
+        </form>
+      </main>
+      <aside></aside>
+    </div>
+  </body>
+</html>

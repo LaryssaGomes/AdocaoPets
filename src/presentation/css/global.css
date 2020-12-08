@@ -38,11 +38,13 @@ button.form-btn {
   background: linear-gradient(90deg, #8de2a5 0%, rgba(69, 210, 230, 0.88) 100%);
 }
 
-input {
+input,
+select {
   font-size: 16px;
 }
 
-input::placeholder {
+input::placeholder,
+select::placeholder {
   color: #565657;
 }
 
@@ -74,7 +76,8 @@ input::placeholder {
   margin-bottom: 6px;
 }
 
-.input-block input {
+.input-block input,
+.input-block select {
   width: 100%;
   padding: 12.5px 14px;
   border: 1px solid #c6c7c7;

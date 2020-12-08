@@ -1,5 +1,5 @@
 <?php
-  require_once "domain/IUser.php";
+  require_once "../domain/IUser.php";
 
   class User implements IUser {
     private $id;
