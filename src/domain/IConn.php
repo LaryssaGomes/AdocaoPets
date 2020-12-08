@@ -1,5 +1,5 @@
 <?php
-interface IConn{
+  interface IConn {
     public function connect();
-}
+  }
 ?>
