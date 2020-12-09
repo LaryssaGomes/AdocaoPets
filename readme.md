@@ -1,5 +1,9 @@
 <h1>Adote. - Adoção de animais</h1>
 
+```bash
+Acesse -> http://localhost/pets/src/
+```
+
 <h3>Como enviar alterações</h3>
 
 1. `git add .`

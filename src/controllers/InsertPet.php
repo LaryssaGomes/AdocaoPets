@@ -24,7 +24,8 @@
     $pet->setUserId($userId);
 
     $service = new PetService($db, $pet);
-    print_r($service->save());
+    $service->save();
+    header ("location: http://localhost/pets/src/presentation/success");
   } else {
     echo 'Falha ao salvar imagem.';
   }

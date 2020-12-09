@@ -22,10 +22,10 @@
     $user->setEmail($email);
     $user->setPhoto($imagePath);
     $user->setAddress($address);
-    print_r($user->getPhoto());
 
     $service = new UserService($db, $user);
     $userId = $service->save();
+    header ("location: http://localhost/pets/src/presentation/success");
   } else {
     echo 'Falha ao salvar imagem.';
   }
