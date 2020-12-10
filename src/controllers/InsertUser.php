@@ -20,8 +20,9 @@
     $validEmail = emailValidation($email);
     
     if ($validEmail == false) {
-      echo 'Informe um e-mail válido';
-      return;
+      // echo 'Informe um e-mail válido';
+      // return;
+      header ("location: http://localhost/pets/src/presentation/failure");
     }
 
     if (empty($name) || empty($birthDate) || empty($email) || empty($address)) {
@@ -40,6 +41,7 @@
       header ("location: http://localhost/pets/src/presentation/success");
     }
   } else {
-    echo 'Falha ao salvar imagem.';
+    // echo 'Falha ao salvar imagem.';
+    header ("location: http://localhost/pets/src/presentation/failure");
   }
 ?>

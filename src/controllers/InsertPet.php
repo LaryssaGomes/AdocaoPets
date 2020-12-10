@@ -18,7 +18,8 @@
     var_dump(empty($name));
 
     if (empty($name) || empty($description) || empty($type) || empty($userId)) {
-      echo 'Preencha todos os dados.';
+      // echo 'Preencha todos os dados.';
+      header ("location: http://localhost/pets/src/presentation/failure");
     } else {
       $pet = new Pet;
       $pet->setPhoto($imagePath);
@@ -32,6 +33,7 @@
       header ("location: http://localhost/pets/src/presentation/success");
     }
   } else {
-    echo 'Falha ao salvar imagem.';
+    // echo 'Falha ao salvar imagem.';
+    header ("location: http://localhost/pets/src/presentation/failure");
   }
 ?>
