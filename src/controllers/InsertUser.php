@@ -22,12 +22,12 @@
     if ($validEmail == false) {
       // echo 'Informe um e-mail válido';
       // return;
-      header ("location: http://localhost/pets/src/presentation/failure");
+      header ("location: http://localhost:80/pets/src/presentation/failure");
     }
 
     if (empty($name) || empty($birthDate) || empty($email) || empty($address)) {
       // echo 'Preencha todos os dados.';
-      header ("location: http://localhost/pets/src/presentation/failure");
+      header ("location: http://localhost:80/pets/src/presentation/failure");
     } else {
       $user = new User;
       $user->setName($name);
@@ -38,10 +38,10 @@
   
       $service = new UserService($db, $user);
       $userId = $service->save();
-      header ("location: http://localhost/pets/src/presentation/success");
+      header ("location: http://localhost:80/pets/src/presentation/success");
     }
   } else {
     // echo 'Falha ao salvar imagem.';
-    header ("location: http://localhost/pets/src/presentation/failure");
+    header ("location: http://localhost:80/pets/src/presentation/failure");
   }
 ?>

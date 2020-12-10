@@ -19,7 +19,7 @@
 
     if (empty($name) || empty($description) || empty($type) || empty($userId)) {
       // echo 'Preencha todos os dados.';
-      header ("location: http://localhost/pets/src/presentation/failure");
+      header ("location: http://localhost:80/pets/src/presentation/failure");
     } else {
       $pet = new Pet;
       $pet->setPhoto($imagePath);
@@ -30,10 +30,10 @@
   
       $service = new PetService($db, $pet);
       $service->save();
-      header ("location: http://localhost/pets/src/presentation/success");
+      header ("location: http://localhost:80/pets/src/presentation/success");
     }
   } else {
     // echo 'Falha ao salvar imagem.';
-    header ("location: http://localhost/pets/src/presentation/failure");
+    header ("location: http://localhost:80/pets/src/presentation/failure");
   }
 ?>

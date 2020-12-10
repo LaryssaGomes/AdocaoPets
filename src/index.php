@@ -1,3 +1,3 @@
 <?php
-  header ("location: http://localhost/pets/src/presentation/home");
+  header ("location: http://localhost:80/pets/src/presentation/home");
 ?>
