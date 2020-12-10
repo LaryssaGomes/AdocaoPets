@@ -15,17 +15,22 @@
     $description = $_POST['description'];
     $type = $_POST['type'];
     $userId = $_POST['userId'];
+    var_dump(empty($name));
 
-    $pet = new Pet;
-    $pet->setPhoto($imagePath);
-    $pet->setName($name);
-    $pet->setDescription($description);
-    $pet->setType($type);
-    $pet->setUserId($userId);
-
-    $service = new PetService($db, $pet);
-    $service->save();
-    header ("location: http://localhost/pets/src/presentation/success");
+    if (empty($name) || empty($description) || empty($type) || empty($userId)) {
+      echo 'Preencha todos os dados.';
+    } else {
+      $pet = new Pet;
+      $pet->setPhoto($imagePath);
+      $pet->setName($name);
+      $pet->setDescription($description);
+      $pet->setType($type);
+      $pet->setUserId($userId);
+  
+      $service = new PetService($db, $pet);
+      $service->save();
+      header ("location: http://localhost/pets/src/presentation/success");
+    }
   } else {
     echo 'Falha ao salvar imagem.';
   }
