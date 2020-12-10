@@ -1,7 +1,7 @@
 <h1>Adote. - Adoção de animais</h1>
 
 ```bash
-Acesse -> http://localhost/pets/src/
+Acesse -> http://localhost:80/pets/src/
 ```
 
 <h3>Como enviar alterações</h3>
