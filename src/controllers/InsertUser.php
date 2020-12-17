@@ -6,10 +6,34 @@
   require_once "../validations/EmailValidation.php";
 
   $db = new Conn('localhost','pets','root', '');
-
+  
   $folderUsers = '../../tmp/users/';
   $entity = 'users';
   $imagePath = upload($folderUsers, $entity);
+  
+  /* Funcionou Delete
+  $user = new User;
+     
+  $service = new UserService($db, $user);
+  print_r($service->delete(1));
+  */
+  /* Funcionou Lista dados
+  $user = new User;
+     
+  $service = new UserService($db, $user);
+  print_r($service->list());
+  */
+  /* Funcionou Atualizar
+  $user = new User;
+  $user -> setId(2);
+  $user -> setName("ERISVALDO CANDIDO DOS SANTOS");
+  $user -> setBirthDate('2020-12-16');
+  $user -> setEmail('maria@gmail.com');
+  $user -> setPhoto('jpg');
+  $user -> setAddress('Rua Sete Setembro Centro Sao Sebastiao, Casa');
+  $service = new UserService($db, $user);
+  print_r($service->update());
+  */
   
   if ($imagePath !== '') {
     $name = $_POST['name'];
@@ -44,4 +68,5 @@
     // echo 'Falha ao salvar imagem.';
     header ("location: http://localhost:80/AdocaoPets/src/presentation/failure");
   }
+  
 ?>

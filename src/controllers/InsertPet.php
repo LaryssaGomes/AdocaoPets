@@ -5,7 +5,13 @@
   require_once "../services/ImageUpload.php";
 
   $db = new Conn('localhost','pets','root', '');
-
+  /* Funcionou o delete
+  $pet = new Pet;
+     
+  $service = new PetService($db, $pet);
+  print_r($service->delete(1));
+  */
+  
   $folderPets = '../../tmp/pets/';
   $entity = 'pets';
   $imagePath = upload($folderPets, $entity);
@@ -36,4 +42,5 @@
     // echo 'Falha ao salvar imagem.';
     header ("location: http://localhost:80/AdocaoPets/src/presentation/failure");
   }
+  
 ?>
