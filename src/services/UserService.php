@@ -46,11 +46,20 @@
       $ret = $stmt->execute();
       return $ret;
     }
+
     public function list(){
       $query = "select * from users";
       $stmt = $this->db->prepare($query);
       $stmt->execute();
       return $stmt->fetchAll();
     }
+    
+    public function find($id){
+      $query = "select * from users where `id`=:id";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(":id",$id);
+      $stmt->execute();
+      return $stmt->fetch(\PDO::FETCH_ASSOC);
+  }
   }
 ?>

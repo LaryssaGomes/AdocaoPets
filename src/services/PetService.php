@@ -51,5 +51,13 @@
       $stmt->execute();
       return $stmt->fetchAll();
     }
+    
+    public function find($id){
+      $query = "select * from pets where `id`=:id";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(":id",$id);
+      $stmt->execute();
+      return $stmt->fetch(\PDO::FETCH_ASSOC);
+  }
   }
 ?>

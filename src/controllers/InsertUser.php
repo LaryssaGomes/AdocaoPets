@@ -17,7 +17,7 @@
   $service = new UserService($db, $user);
   print_r($service->delete(1));
   */
-  /* Funcionou Lista dados
+  /* Funcionou Lista todos os dados
   $user = new User;
      
   $service = new UserService($db, $user);
@@ -34,7 +34,11 @@
   $service = new UserService($db, $user);
   print_r($service->update());
   */
-  
+  /* Funcionou Encontra
+  $user = new User;
+  $service = new UserService($db, $user);
+  print_r($service->find(4));
+  */
   if ($imagePath !== '') {
     $name = $_POST['name'];
     $birthDate = $_POST['birthDate'];
