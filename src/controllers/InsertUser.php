@@ -4,44 +4,34 @@
   require_once "../services/UserService.php";
   require_once "../services/ImageUpload.php";
   require_once "../validations/EmailValidation.php";
+  require_once "../helpers/helpers.php";
+  require_once "../domain/IUserController.php";
 
-  $db = new Conn('localhost','pets','root', '');
-
-  $folderUsers = '../../tmp/users/';
-  $entity = 'users';
-  $imagePath = upload($folderUsers, $entity);
-  
-  if ($imagePath !== '') {
-    $name = $_POST['name'];
-    $birthDate = $_POST['birthDate'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
-
-    $validEmail = emailValidation($email);
+  // implements IUserController 
+  class UserController {
+    public function insert() {
+      $folderUsers = '../../tmp/users/';
+      $imagePath = upload($folderUsers, 'users');
+      $name = $_POST['name'];
+      $birthDate = $_POST['birthDate'];
+      $email = $_POST['email'];
+      $address = $_POST['address'];
+      $validEmail = emailValidation($email);
+      
+      if ($imagePath !== '' || $validEmail == false || empty($name) || empty($birthDate) || empty($email) || empty($address)) {
+        redirect("/failure");
+      } else {
+        $user = new User();
+        $user->setName($name);
+        $user->setBirthDate($birthDate);
+        $user->setEmail($email);
+        $user->setPhoto($imagePath);
+        $user->setAddress($address);
     
-    if ($validEmail == false) {
-      // echo 'Informe um e-mail válido';
-      // return;
-      header ("location: http://localhost:80/AdocaoPets/src/presentation/failure");
+        $service = new UserService($user);
+        $userId = $service->save();
+        redirect("/success");
+      }
     }
-
-    if (empty($name) || empty($birthDate) || empty($email) || empty($address)) {
-      // echo 'Preencha todos os dados.';
-      header ("location: http://localhost:80/AdocaoPets/src/presentation/failure");
-    } else {
-      $user = new User;
-      $user->setName($name);
-      $user->setBirthDate($birthDate);
-      $user->setEmail($email);
-      $user->setPhoto($imagePath);
-      $user->setAddress($address);
-  
-      $service = new UserService($db, $user);
-      $userId = $service->save();
-      header ("location: http://localhost:80/AdocaoPets/src/presentation/success");
-    }
-  } else {
-    // echo 'Falha ao salvar imagem.';
-    header ("location: http://localhost:80/AdocaoPets/src/presentation/failure");
   }
 ?>
