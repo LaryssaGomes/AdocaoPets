@@ -8,7 +8,7 @@
       $newName = uniqid().".$ext";
   
       if (move_uploaded_file($tmp, $folder.$newName)):
-        $imagePath = "http://localhost/pets/tmp/".$entity."/".$newName; 
+        $imagePath = "http://localhost/AdocaoPets/tmp/".$entity."/".$newName; 
       else:
         $imagePath = '';
       endif;

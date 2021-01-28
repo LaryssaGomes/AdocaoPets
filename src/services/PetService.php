@@ -23,5 +23,41 @@
 
       return $this->db->lastInsertId();
     }
+
+    public function delete($id){
+      $query = "delete from pets where `id`=:id";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(":id",$id);
+      $ret = $stmt->execute();
+      return $ret;
+    }
+    
+    public function update(){
+      $query = "update `pets` set `photo`=?, `name`=?, `description`=? ,`type`=? , `user_id`=? where `id`=?";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(1,$this->pet->getPhoto());
+      $stmt->bindValue(2,$this->pet->getName());
+      $stmt->bindValue(3,$this->pet->getDescription());
+      $stmt->bindValue(4,$this->pet->getType());
+      $stmt->bindValue(5,$this->pet->getUserId());
+      $stmt->bindValue(6,$this->pet->getId());
+      $ret = $stmt->execute();
+      return $ret;
+    }
+
+    public function list(){
+      $query = "select * from pets";
+      $stmt = $this->db->prepare($query);
+      $stmt->execute();
+      return $stmt->fetchAll();
+    }
+    
+    public function find($id){
+      $query = "select * from pets where `id`=:id";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(":id",$id);
+      $stmt->execute();
+      return $stmt->fetch(\PDO::FETCH_ASSOC);
+  }
   }
 ?>
