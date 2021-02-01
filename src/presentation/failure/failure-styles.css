@@ -1,0 +1,25 @@
+#success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+
+#success .message {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#success .message h1 {
+  margin-top: 48px;
+}
+
+#success .message h2 {
+  margin-top: 16px;
+  color: rgb(214, 86, 39);
+}

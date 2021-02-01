@@ -1,0 +1,5 @@
+tmp/users/*
+!tmp/users/.gitkeep
+!tmp/users/.gitkeep
+tmp/pets/*
+!tmp/pets/.gitkeep
