@@ -12,5 +12,7 @@
     public function setPhoto($photo);
     public function getAddress();
     public function setAddress($address);
+    public function getPassword(); # adicionado
+    public function setPassword($password); # adicionado
   }
 ?>

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+  require_once "./verifica.php";
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,6 +28,7 @@
           method="POST"
           enctype="multipart/form-data"
         >
+          <input type="hidden" name="_method" value="PUT" />
           <div class="input-block">
             <label for="photo">Sua melhor foto:</label>
             <input type="file" name="photo" id="photo" />

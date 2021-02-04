@@ -8,6 +8,7 @@
     private $email;
     private $photo;
     private $address;
+    private $password; # adicionado
     
     public function getId(){
       return $this->id;
@@ -56,5 +57,12 @@
     public function setAddress($address) {
       $this->address = $address;
     }
+    public function getPassword() {
+      return $this->password;
+    } # adicionado
+    
+    public function setPassword($password) {
+      $this->password = $password;
+    } # adicionado
   }
 ?>

@@ -7,6 +7,8 @@
   require_once dirname(__FILE__)."/../helpers/helpers.php";
   require_once dirname(__FILE__)."/../domain/IUserController.php";
 
+  session_start();
+
   class UserController {
     public function insert() {
       $folderUsers = '../../tmp/users/';
@@ -16,8 +18,8 @@
       $email = $_POST['email'];
       $address = $_POST['address'];
       $validEmail = emailValidation($email);
-
-      if ($imagePath === '' || $validEmail == false || empty($name) || empty($birthDate) || empty($email) || empty($address)) {
+      $password = md5($_POST['password']); # adicionado
+      if ($imagePath === '' || $validEmail == false || empty($name) || empty($birthDate) || empty($email) || empty($address) || empty($password)) {
         redirect("/failure");
       } else {
         $user = new User();
@@ -26,6 +28,7 @@
         $user->setEmail($email);
         $user->setPhoto($imagePath);
         $user->setAddress($address);
+        $user->setPassword($password); # adicionado
     
         $service = new UserService(new Conn("localhost","pets","root", ""), $user);
         $userId = $service->save();
@@ -35,6 +38,7 @@
 
     public function update($id) {
       // $id = localStorage.getItem("user_id"); 
+      $id = $_SESSION["id_usuario"];
       $folderUsers = '../../tmp/users/';
       $imagePath = upload($folderUsers, 'users');
       $name = $_POST['name'];
@@ -42,20 +46,22 @@
       $email = $_POST['email'];
       $address = $_POST['address'];
       $validEmail = emailValidation($email);
+      $password = md5($_POST['password']); # adicionado
 
-      if ($imagePath === '' || $validEmail == false || empty($name) || empty($birthDate) || empty($email) || empty($address)) {
+      if ($imagePath === '' || $validEmail == false || empty($name) || empty($birthDate) || empty($email) || empty($address) || empty($password)) {
         redirect("/failure");
       } else {
         $user = new User();
-        // $user->setId($id);
+        $user->setId($id);
         $user->setName($name);
         $user->setBirthDate($birthDate);
         $user->setEmail($email);
         $user->setPhoto($imagePath);
         $user->setAddress($address);
+        $user->setPassword($password); # adicionado
     
         $service = new UserService(new Conn("localhost","pets","root", ""), $user);
-        $userId = $service->save();
+        $userId = $service->update();
         redirect("/success");
       }
     }

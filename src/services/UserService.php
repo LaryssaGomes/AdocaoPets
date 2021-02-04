@@ -18,8 +18,8 @@
 
     public function save() {
       try {
-        $query = "insert into users (`name`,`birthdate`,`email`,`photo`,`address`) 
-              VALUES (:name,:birthdate,:email,:photo,:address)";
+        $query = "insert into users (`name`,`birthdate`,`email`,`photo`,`address`,`password`)
+              VALUES (:name,:birthdate,:email,:photo,:address,:password)"; # adicionado
     
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(":name", $this->user->getName());
@@ -27,6 +27,7 @@
         $stmt->bindValue(":email", $this->user->getEmail());
         $stmt->bindValue(":photo", $this->user->getPhoto());
         $stmt->bindValue(":address", $this->user->getAddress());
+        $stmt->bindValue(":password", $this->user->getPassword()); # adicionado
         $stmt->execute();
 
         return $this->db->lastInsertId();
@@ -45,7 +46,7 @@
     }
     
     public function update(){
-      $query = "update `users` set `name`=?, `birthdate`=? ,`email`=? , `photo`=?, `address`=?  where `id`=?";
+      $query = "update `users` set `name`=?, `birthdate`=? ,`email`=? , `photo`=?, `address`=?, `password`=?  where `id`=?";
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(1,$this->user->getName());
       $stmt->bindValue(2,$this->user->getBirthDate());
@@ -53,6 +54,7 @@
       $stmt->bindValue(4,$this->user->getPhoto());
       $stmt->bindValue(5,$this->user->getAddress());
       $stmt->bindValue(6,$this->user->getId());
+      $stmt->bindValue(6,$this->user->getPassword()); # adicionado
       $ret = $stmt->execute();
       return $ret;
     }

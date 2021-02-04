@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php 
+  session_start();
+
+  if(!isset($_SESSION["id_usuario"]) || !isset($_SESSION["nome_usuario"])){
+    header("Location:../home/index.html");
+    exit;
+  }
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,7 +29,7 @@
       <main>
         <h1>Adote.</h1>
         <form
-          action="../../controllers/RestPet.php"
+          action="../../controllers/InsertPet.php"
           method="POST"
           enctype="multipart/form-data"
         >
@@ -62,7 +70,8 @@
           </div>
           <button class="form-btn" type="submit">Cadastrar</button>
         </form>
-        <a class="link" href="../home">
+        <!--<a class="link" href="../home">-->
+        <a class="link" href="../signin/data.php">
           <i class="fas fa-arrow-left"></i>
           Voltar
         </a>

@@ -4,9 +4,6 @@
 Acesse -> http://localhost:80/AdocaoPets/src/
 * a pasta do projeto deve ter o nome AdocaoPets *
 ```
-<h3>Clone o projeto</h3>
-
-`git clone https://github.com/LaryssaGomes/AdocaoPets.git`
 
 <h3>Como enviar alterações:</h3>
 

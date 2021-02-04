@@ -7,11 +7,11 @@
   switch ($method) {
     case 'PUT':
       // atualizar
-      // $userController = new UserController(); // já tá pronto
-      // $userController->update($_POST);
+      $userController = new UserController(); // já tá pronto
+      $userController->update($_POST);
       break;
     case 'POST':
-      $userController = new UserController(); // cadastrar - já tá pronto
+      $userController = new UserController();
       $userController->insert($_POST);
       break;
     case 'GET':
