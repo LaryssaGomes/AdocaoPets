@@ -24,15 +24,14 @@
       <main>
         <h1>Adote.</h1>
         <form
-          action="../../controllers/RestUser.php"
+          action="./editar.php"
           method="POST"
           enctype="multipart/form-data"
         >
-          <input type="hidden" name="_method" value="PUT" />
-          <div class="input-block">
+          <!--<div class="input-block">
             <label for="photo">Sua melhor foto:</label>
             <input type="file" name="photo" id="photo" />
-          </div>
+          </div>-->
           <div class="input-block">
             <label for="name">Seu nome:</label>
             <input
@@ -68,7 +67,7 @@
               id="password"
             />
           </div>
-          <button class="form-btn" type="submit">Cadastrar</button>
+          <button class="form-btn" type="submit">Salvar</button>
         </form>
         <a class="link" href="../home">
           <i class="fas fa-arrow-left"></i>

@@ -32,23 +32,24 @@
     
         $service = new UserService(new Conn("localhost","pets","root", ""), $user);
         $userId = $service->save();
-        redirect("/success");
+        redirect("/success/registerUser.html");
       }
     }
 
     public function update($id) {
       // $id = localStorage.getItem("user_id"); 
       $id = $_SESSION["id_usuario"];
-      $folderUsers = '../../tmp/users/';
-      $imagePath = upload($folderUsers, 'users');
+      // $folderUsers = '../../tmp/users/';
+      // $imagePath = upload($folderUsers, 'users');
       $name = $_POST['name'];
       $birthDate = $_POST['birthDate'];
       $email = $_POST['email'];
       $address = $_POST['address'];
       $validEmail = emailValidation($email);
       $password = md5($_POST['password']); # adicionado
+      echo $address;
 
-      if ($imagePath === '' || $validEmail == false || empty($name) || empty($birthDate) || empty($email) || empty($address) || empty($password)) {
+      if ($validEmail == false || empty($name) || empty($birthDate) || empty($email) || empty($address) || empty($password) || empty($id)) {
         redirect("/failure");
       } else {
         $user = new User();
@@ -56,13 +57,28 @@
         $user->setName($name);
         $user->setBirthDate($birthDate);
         $user->setEmail($email);
-        $user->setPhoto($imagePath);
+        // $user->setPhoto($imagePath);
         $user->setAddress($address);
         $user->setPassword($password); # adicionado
     
         $service = new UserService(new Conn("localhost","pets","root", ""), $user);
         $userId = $service->update();
-        redirect("/success");
+        redirect("/success/registerUser.html");
+      }
+    }
+
+    public function delete($id){
+      echo "É esse id: " . $id;
+
+      if(empty($id)){
+        redirect("/failure");
+      }else{
+        $user = new User;
+        $user->setId($id);
+
+        $service = new UserService(new Conn("localhost","pets","root", ""), $user);
+        $userId = $service->delete();
+        redirect("/success/deleteUser.html");
       }
     }
   }

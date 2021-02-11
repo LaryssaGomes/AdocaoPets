@@ -133,8 +133,9 @@
 		                  			</table>
 		                		</div>
 		              		</div>
-		                  	<a href="editData.html" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Editar </a>
-		                  	<a href="../signin/delete.php" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">
+		                  	<a href="../editUser/editUser.php" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
+                        <i class="glyphicon glyphicon-edit"></i> Editar </a>
+		                  	<a href="../../controllers/DeleteUserRouter.php" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">
 		                  	<i class="glyphicon glyphicon-remove"></i> Excluir conta </a>
 							<a href="./exit.php" type="button" data-toggle="tooltip" class="btn btn-sm btn-danger"> 
 							<i class="glyphicon glyphicon-off"></i> Sair </a>
@@ -158,6 +159,12 @@
 	          			</div>
 	          			<div class="mg2">
 	          				<a href="../listPets/" type="button" class="btn btn-pet">Adotar</a>
+	          			</div>
+                  <div class="mg2">
+	          				<a href="../editPet/selectEditionPet.php" type="button" class="btn btn-pet">Editar pet</a>
+	          			</div>
+                  <div class="mg2">
+	          				<a href="../deletePet/deletePet.php" type="button" class="btn btn-pet">Excluir pet</a>
 	          			</div>
 	            	</div>
 	        	</div>

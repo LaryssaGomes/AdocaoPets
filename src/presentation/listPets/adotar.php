@@ -35,7 +35,7 @@
 
   if($retorno){ 
     echo "<script type= 'text/javascript'>";
-    header("Location: ../signin/data.php");
+    header("Location: ../success/adoptionPet.html");
     exit();
 
     

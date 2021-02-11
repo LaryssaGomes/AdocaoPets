@@ -6,6 +6,8 @@
     header("Location:../home/index.html");
     exit;
   }
+
+  $id = $_POST["type"];
 ?>
 <html lang="en">
   <head>
@@ -22,21 +24,17 @@
       src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"
       crossorigin="anonymous"
     ></script>
-    <title>Cadastrar Pet</title>
+    <title>Editar Pet</title>
   </head>
   <body>
     <div id="signup">
       <main>
         <h1>Adote.</h1>
         <form
-          action="../../controllers/RestPet.php"
+          action="../../controllers/EditPetRouter.php"
           method="POST"
           enctype="multipart/form-data"
         >
-          <div class="input-block">
-            <label for="photo">Foto do pet:</label>
-            <input type="file" name="photo" id="photo" />
-          </div>
           <div class="input-block">
             <label for="name">Nome do pet:</label>
             <input type="text" placeholder="Doguinho" name="name" id="name" />
@@ -60,15 +58,9 @@
             </select>
           </div>
           <div class="input-block">
-            <label for="userEmail">Email do usuário:</label>
-            <input
-              type="text"
-              placeholder="fulano@gmail.com"
-              name="userEmail"
-              id="userEmail"
-            />
+          <input type="checkbox" value="<?php echo $id;?>" name="id"> aceitar edição de dados</input>
           </div>
-          <button class="form-btn" type="submit">Cadastrar</button>
+          <button class="form-btn" type="submit">Salvar</button>
         </form>
         <!--<a class="link" href="../home">-->
         <a class="link" href="../signin/data.php">
