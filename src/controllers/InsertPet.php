@@ -37,8 +37,10 @@
       $pet->setName($name);
       $pet->setDescription($description);
       $pet->setType($type);
+      $pet->setAdoptionState(0);
       $pet->setUserId($userId);
-  
+      
+
       $service = new PetService($db, $pet);
       $service->save();
       header ("location: http://localhost:80/AdocaoPets/src/presentation/success");

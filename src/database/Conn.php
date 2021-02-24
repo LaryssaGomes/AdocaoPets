@@ -7,11 +7,11 @@
     private $user;
     private $password;
     
-    public function __construct($host, $dbname, $user, $password){
+    public function __construct($host = 'localhost', $dbname = 'pets', $user = 'root', $password ){
       $this->host = $host;
       $this->dbname = $dbname;
       $this->user = $user;
-      $this->password = $password;
+      $this->password = '';
     }
     
     public function connect(){

@@ -29,9 +29,17 @@
     echo "Descrição: " . $valor->description . "<br>";
   }
 
-  $query = "DELETE FROM pets WHERE id = ?";
+  $query = "UPDATE pets SET adoption_state = 1 WHERE id = ?";
   $stm = $conn->prepare($query);
   $retorno = $stm->execute(array($id));
+// Registros 
+  require_once "../../../src/controllers/InsertRecord.php";
+  require_once "../../../src/models/Record.php";
+  require_once "../../../src/database/Conn.php";
+
+  $db = new Conn("localhost","pets","root", "");
+  $record_info = new InsertRecord(new Record);
+  $record_info->get($_SESSION["id_usuario"], $id, $db);
 
   if($retorno){ 
     echo "<script type= 'text/javascript'>";

@@ -67,7 +67,7 @@
               </div>
             <?php
             //SQL para selecionar os registros
-            $query =  'SELECT * FROM pets';
+            $query =  'SELECT * FROM pets WHERE adoption_state <> 1 or adoption_state is null';
             $stm = $conn->prepare($query);
             $stm->execute();
             $data = $stm->fetchAll(PDO:: FETCH_OBJ);

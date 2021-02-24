@@ -139,6 +139,8 @@
 		                  	<i class="glyphicon glyphicon-remove"></i> Excluir conta </a>
 							<a href="./exit.php" type="button" data-toggle="tooltip" class="btn btn-sm btn-danger"> 
 							<i class="glyphicon glyphicon-off"></i> Sair </a>
+							<a href="../../../relatorio/relatorio.php" type="button" data-toggle="tooltip" class="btn btn-sm btn-danger">
+							<i></i> Registros de adoções</a>
 		            	</div>
 		          	</div>
 	        	</div>

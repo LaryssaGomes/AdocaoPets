@@ -7,6 +7,7 @@
     private $name;
     private $description;
     private $type;
+    private $adoptionState;
     private $userId;
     
     public function getId(){
@@ -47,6 +48,13 @@
     
     public function setType($type) {
       $this->type = $type;
+    }
+    public function getAdoptionState() {
+      return $this->adoptionState;
+    }
+    
+    public function setAdoptionState($adoptionState) {
+      $this->adoptionState = $adoptionState;
     }
 
     public function getUserId() {
