@@ -3,7 +3,7 @@
 <h2>
   <a href="https://petspweb.000webhostapp.com/src/presentation/home/">Hospedado -> https://petspweb.000webhostapp.com/src/presentation/home/</a>
 </h2>
-<span>(na hospedagem ñ funciona 100%, mas pode baixar o projeto que tá funcionando)</span>
+<span>(na hospedagem as operações no banco ñ funcionam, mas pode baixar o projeto que tá funcionando)</span>
 
 <br/>
 
