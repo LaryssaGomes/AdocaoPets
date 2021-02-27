@@ -1,5 +1,6 @@
 <h1>Adote - Adoção de animais</h1>
-
+<h2><a href="https://petspweb.000webhostapp.com/src/presentation/home/">Hospedado -> https://petspweb.000webhostapp.com/src/presentation/home/</a></h2>
+(na hospedagem ñ funciona 100%, mas pode baixar o projeto que tá funcionando)
 ```bash
 Acesse -> http://localhost:80/AdocaoPets/src/
 * a pasta do projeto deve ter o nome AdocaoPets *
