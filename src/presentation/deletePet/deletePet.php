@@ -1,7 +1,7 @@
 <?php
     define('HOST', 'localhost');
     define('USER', 'root');
-    define('PASS', 'laryssa');
+    define('PASS', '');
     define('DBNAME', 'pets');
 
     $conn = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME . ';', USER, PASS);

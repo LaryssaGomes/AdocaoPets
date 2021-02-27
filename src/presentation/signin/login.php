@@ -11,7 +11,7 @@
 
     try{
       $opcoes = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8");
-      $db = new PDO("mysql:host=localhost; dbname=pets", "root", "laryssa", $opcoes);
+      $db = new PDO("mysql:host=localhost; dbname=pets", "root", "", $opcoes);
 
       $email = isset($_POST["email"]) ? $_POST["email"] : null;
       $password = isset($_POST["password"]) ? md5(trim($_POST["password"])) : null;

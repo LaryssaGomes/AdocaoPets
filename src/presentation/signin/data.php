@@ -9,7 +9,7 @@
 
 			$id = $_SESSION["id_usuario"];
 
-			$db = new PDO('mysql:host=localhost;dbname=pets', 'root', 'laryssa');
+			$db = new PDO('mysql:host=localhost;dbname=pets', 'root', '');
 			$stmt = $db->prepare("SELECT name, birthdate, email, address FROM users WHERE id = $id");
 
 			if(!$stmt->execute()){
@@ -101,7 +101,7 @@
 	                			<div class="col-md-6 col-lg-7" align="center">
 		                			<?php
 
-										$db = new PDO('mysql:host=localhost;dbname=pets', 'root', 'laryssa');
+										$db = new PDO('mysql:host=localhost;dbname=pets', 'root', '');
 										$stmt = $db->prepare("SELECT photo FROM users WHERE id = $id");
 
 										if(!$stmt->execute()){
@@ -185,7 +185,7 @@
 				 <div id="dialog" title="Animal mais adotado" style="display:none;">
 				<p>
 				<?php 
-				$db = new PDO('mysql:host=localhost;dbname=pets', 'root', 'laryssa');
+				$db = new PDO('mysql:host=localhost;dbname=pets', 'root', '');
 				$query = "SELECT type , COUNT(*) AS numero FROM pets , records WHERE records.pet_id = pets.id GROUP BY type ORDER BY COUNT(*) DESC";
 				$stmt = $db->prepare($query);
 				$stmt->execute();

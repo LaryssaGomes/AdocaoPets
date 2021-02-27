@@ -4,7 +4,7 @@ require_once __DIR__ . '../../vendor/autoload.php';
 $mpdf = new \Mpdf\Mpdf();
 define('HOST', 'localhost');
 define('USER', 'root');
-define('PASS', 'laryssa');
+define('PASS', '');
 define('DBNAME', 'pets');
 
 $conn = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME . ';', USER, PASS);
