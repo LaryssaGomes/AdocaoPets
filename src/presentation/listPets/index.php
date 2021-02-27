@@ -1,7 +1,7 @@
 <?php
     define('HOST', 'localhost');
     define('USER', 'root');
-    define('PASS', '');
+    define('PASS', 'laryssa');
     define('DBNAME', 'pets');
 
     $conn = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME . ';', USER, PASS);
@@ -30,6 +30,7 @@
         src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"
         crossorigin="anonymous"
         ></script>
+        
         <title>Lista de pets</title>
        
         <style type="text/css">
@@ -67,11 +68,14 @@
               </div>
             <?php
             //SQL para selecionar os registros
-            $query =  'SELECT * FROM pets WHERE adoption_state <> 1 or adoption_state is null';
+            $n=$_SESSION["id_usuario"];
+            $query =  'SELECT * FROM pets WHERE adoption_state <> 1 or adoption_state is null and user_id <> :n';
             $stm = $conn->prepare($query);
+            $stm->bindValue(":n", $n);
             $stm->execute();
             $data = $stm->fetchAll(PDO:: FETCH_OBJ);
-
+            
+            
             foreach ($data as $valor) {
               $valor->photo . "<br>"; ?> 
               <div class="panel=body">
@@ -80,7 +84,8 @@
                     <div class="circle-image">
                       <?php echo "<img src='$valor->photo'/>"; ?>
                     </div>
-                    <?php echo "Nome: " . $valor->name . "<br>";
+                    <?php 
+                    echo "Nome: " . $valor->name . "<br>";
                     echo "Id: " . $valor->id . "<br>";
                     echo "Descrição: " . $valor->description . "<br>";
                     echo "Tipo: " . $valor->type ?>

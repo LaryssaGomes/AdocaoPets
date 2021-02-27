@@ -6,7 +6,7 @@
 
 			$id = $_SESSION["id_usuario"];
 
-			$db = new PDO('mysql:host=localhost;dbname=pets', 'root', '');
+			$db = new PDO('mysql:host=localhost;dbname=pets', 'root', 'laryssa');
 			$stmt = $db->prepare("SELECT * FROM pets WHERE user_id = $id");
 
 			if(!$stmt->execute()){

@@ -1,7 +1,7 @@
 <?php
   define('HOST', 'localhost');
   define('USER', 'root');
-  define('PASS', '');
+  define('PASS', 'laryssa');
   define('DBNAME', 'pets');
 
   $conn = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME . ';', USER, PASS);
@@ -37,7 +37,7 @@
   require_once "../../../src/models/Record.php";
   require_once "../../../src/database/Conn.php";
 
-  $db = new Conn("localhost","pets","root", "");
+  $db = new Conn("localhost","pets","root", "laryssa");
   $record_info = new InsertRecord(new Record);
   $record_info->get($_SESSION["id_usuario"], $id, $db);
 

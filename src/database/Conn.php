@@ -5,13 +5,13 @@
     private $host;
     private $dbname;
     private $user;
-    private $password;
+    private $password = 'laryssa';
     
-    public function __construct($host = 'localhost', $dbname = 'pets', $user = 'root', $password ){
+    public function __construct($host = 'localhost', $dbname = 'pets', $user = 'root', $password = 'laryssa' ){
       $this->host = $host;
       $this->dbname = $dbname;
       $this->user = $user;
-      $this->password = '';
+      $this->password = 'laryssa';
     }
     
     public function connect(){

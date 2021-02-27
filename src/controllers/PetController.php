@@ -11,7 +11,7 @@
   class PetController {
     public function insert() {
       $opcoes = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8");
-      $db = new PDO("mysql:host=localhost; dbname=pets", "root", "", $opcoes);
+      $db = new PDO("mysql:host=localhost; dbname=pets", "root", "laryssa", $opcoes);
 
       $email = $_POST["userEmail"];
 
@@ -39,7 +39,7 @@
         $pet->setType($type);
         $pet->setUserId($userId);
     
-        $service = new PetService(new Conn("localhost","pets","root", ""), $pet);
+        $service = new PetService(new Conn("localhost","pets","root", "laryssa"), $pet);
         $petId = $service->save();
         redirect("/success/registerPet.html");
       }
@@ -66,7 +66,7 @@
         //$pet->setUserId($userId);
         $pet->setId($id);
     
-        $service = new PetService(new Conn("localhost","pets","root", ""), $pet);
+        $service = new PetService(new Conn("localhost","pets","root", "laryssa"), $pet);
         $petId = $service->update();
         redirect("/success/registerPet.html");
       }
@@ -78,7 +78,7 @@
         $pet = new Pet;
         $pet->setId($id);
 
-        $service = new PetService(new Conn("localhost","pets","root", ""), $pet);
+        $service = new PetService(new Conn("localhost","pets","root", "laryssa"), $pet);
         $petId = $service->delete();
         redirect("/success/deletePet.html");
       }
