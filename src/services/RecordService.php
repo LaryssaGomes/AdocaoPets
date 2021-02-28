@@ -13,7 +13,7 @@
     public $record;
     // private $db = new Conn("localhost","pets","root", "");
     
-    public function __construct( Conn $db, $record) {
+    public function __construct( Conn $db, $record = null) {
       $this->db = $db->connect();
       $this->record = $record;
     }
@@ -27,8 +27,19 @@
 
       return $this->db->lastInsertId();
     }
+
     public function list(){
       $query = "select * FROM records ";
+    }
+
+    public function mostAdopted(){
+
+      $query = "SELECT type , COUNT(*) FROM pets , records WHERE records.pet_id = pets.id GROUP BY type ORDER BY COUNT(*) DESC";
+      $stmt = $this->db->prepare($query);
+      $stmt->execute();
+      $data = $stm->fetchAll(PDO:: FETCH_OBJ);
+      
+      return $data;
     }
 
 }

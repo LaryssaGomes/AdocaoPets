@@ -5,9 +5,9 @@
     private $host;
     private $dbname;
     private $user;
-    private $password;
+    private $password = '';
     
-    public function __construct($host = 'localhost', $dbname = 'pets', $user = 'root', $password ){
+    public function __construct($host = 'localhost', $dbname = 'pets', $user = 'root', $password = '' ){
       $this->host = $host;
       $this->dbname = $dbname;
       $this->user = $user;

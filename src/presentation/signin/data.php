@@ -30,6 +30,16 @@
             rel="stylesheet"
             type="text/css"
         />
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script language=javascript type="text/javascript">
+			$(document).ready(function(){
+				$("#submit").on("click", function(){
+					$("#dialog").dialog();
+				});
+		});
+		</script>
 		<title>Perfil do usuário</title>
 		<style type="text/css">
 			.circle-image {
@@ -168,6 +178,29 @@
                   <div class="mg2">
 	          				<a href="../deletePet/deletePet.php" type="button" class="btn btn-pet">Excluir pet</a>
 	          			</div>
+				  <div class="mg2">
+				  			<input id="submit" type="submit" value="Tipo mais adotado"class="btn btn-pet"/>
+	          			</div>
+					
+				 <div id="dialog" title="Animal mais adotado" style="display:none;">
+				<p>
+				<?php 
+				$db = new PDO('mysql:host=localhost;dbname=pets', 'root', '');
+				$query = "SELECT type , COUNT(*) AS numero FROM pets , records WHERE records.pet_id = pets.id GROUP BY type ORDER BY COUNT(*) DESC";
+				$stmt = $db->prepare($query);
+				$stmt->execute();
+				$data = $stmt->fetchAll(PDO:: FETCH_OBJ);
+				if($data[0]->type = 'dog'){
+					echo 'Cachorro com : '. $data[0]->numero.' Adoções';
+				}elseif($data[0]->type = 'cat'){
+					echo 'Gato com : '. $data[0]->numero .' Adoções';
+				}else{
+					echo 'Pássaro com : '. $data[0]->numero . 'Adoções';
+				}
+				
+				?>
+				</p>
+				     </div>
 	            	</div>
 	        	</div>
 
