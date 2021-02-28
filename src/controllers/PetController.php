@@ -47,8 +47,8 @@
 
     public function update($id) {
       $name = $_POST['name'];
-      // $folderUsers = '../../tmp/pets/';
-      // $imagePath = upload($folderUsers, 'pets');
+      $folderUsers = '../../tmp/pets/';
+      $imagePath = upload($folderUsers, 'pets');
       $description = $_POST['description'];
       $type = $_POST['type'];
       //$userId = $_POST['userId'];

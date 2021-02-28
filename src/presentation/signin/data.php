@@ -160,7 +160,7 @@
 	          				<a href="../registerPet/index.php" type="button" class="btn btn-pet">Cadastrar Pet</a>
 	          			</div>
 	          			<div class="mg2">
-	          				<a href="../listPets/" type="button" class="btn btn-pet">Adotar</a>
+	          				<a href="../listPets/index.php" type="button" class="btn btn-pet">Adotar</a>
 	          			</div>
                   <div class="mg2">
 	          				<a href="../editPet/selectEditionPet.php" type="button" class="btn btn-pet">Editar pet</a>

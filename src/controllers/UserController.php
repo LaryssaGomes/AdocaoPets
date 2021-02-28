@@ -39,8 +39,8 @@
     public function update($id) {
       // $id = localStorage.getItem("user_id"); 
       $id = $_SESSION["id_usuario"];
-      // $folderUsers = '../../tmp/users/';
-      // $imagePath = upload($folderUsers, 'users');
+      $folderUsers = '../../tmp/users/';
+      $imagePath = upload($folderUsers, 'users');
       $name = $_POST['name'];
       $birthDate = $_POST['birthDate'];
       $email = $_POST['email'];
@@ -57,7 +57,7 @@
         $user->setName($name);
         $user->setBirthDate($birthDate);
         $user->setEmail($email);
-        // $user->setPhoto($imagePath);
+        $user->setPhoto($imagePath);
         $user->setAddress($address);
         $user->setPassword($password); # adicionado
     

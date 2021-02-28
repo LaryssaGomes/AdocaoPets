@@ -46,15 +46,15 @@
     }
     
     public function update(){
-      $query = "update `users` set `name`=?, `birthdate`=? ,`email`=? ,`address`=?, `password`=?  where `id`=?";
+      $query = "update `users` set `name`=?, `birthdate`=? ,`email`=?, `photo`=?, `address`=?, `password`=?  where `id`=?";
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(1,$this->user->getName());
       $stmt->bindValue(2,$this->user->getBirthDate());
       $stmt->bindValue(3,$this->user->getEmail());
-      // $stmt->bindValue(4,$this->user->getPhoto());
-      $stmt->bindValue(4,$this->user->getAddress());
-      $stmt->bindValue(5,$this->user->getPassword()); # adicionado
-      $stmt->bindValue(6,$this->user->getId());
+      $stmt->bindValue(4,$this->user->getPhoto());
+      $stmt->bindValue(5,$this->user->getAddress());
+      $stmt->bindValue(6,$this->user->getPassword()); # adicionado
+      $stmt->bindValue(7,$this->user->getId());
       $ret = $stmt->execute();
       return $ret;
     }

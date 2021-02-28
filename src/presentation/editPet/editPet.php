@@ -36,6 +36,10 @@
           enctype="multipart/form-data"
         >
           <div class="input-block">
+            <label for="photo">Foto do pet:</label>
+            <input type="file" name="photo" id="photo" />
+          </div>
+          <div class="input-block">
             <label for="name">Nome do pet:</label>
             <input type="text" placeholder="Doguinho" name="name" id="name" />
           </div>

@@ -34,14 +34,14 @@
     }
     
     public function update(){
-      $query = "update `pets` set `name`=?, `description`=? ,`type`=? where `id`=?";
+      $query = "update `pets` set `photo`=?, `name`=?, `description`=? ,`type`=? where `id`=?";
       $stmt = $this->db->prepare($query);
-      // $stmt->bindValue(1,$this->pet->getPhoto());
-      $stmt->bindValue(1,$this->pet->getName());
-      $stmt->bindValue(2,$this->pet->getDescription());
-      $stmt->bindValue(3,$this->pet->getType());
+      $stmt->bindValue(1,$this->pet->getPhoto());
+      $stmt->bindValue(2,$this->pet->getName());
+      $stmt->bindValue(3,$this->pet->getDescription());
+      $stmt->bindValue(4,$this->pet->getType());
       //$stmt->bindValue(4,$this->pet->getUserId());
-      $stmt->bindValue(4,$this->pet->getId());
+      $stmt->bindValue(5,$this->pet->getId());
       $ret = $stmt->execute();
       return $ret;
     }

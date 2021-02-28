@@ -4,7 +4,7 @@
   session_start();
 
   if(!isset($_SESSION["id_usuario"]) || !isset($_SESSION["nome_usuario"])){
-    header("Location: ../../home/index.html");
+    header("Location: ../presentation/home/index.html");
     exit;
   }
 
@@ -15,7 +15,7 @@
     $userController = new UserController();
     $userController->update($_POST);
   }else{
-    header("Location: ../../signin/editData.php");
+    header("Location: ../presentation/editUser/editUser.php");
   }
 ?>
 ?>

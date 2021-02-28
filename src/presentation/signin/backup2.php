@@ -1,7 +1,13 @@
 <?php
 $conn = new PDO('mysql:host=localhost;dbname=pets', 'root', '');
+//$db = mysql_select_db("pets");
 
-session_start();
+$query =  'SELECT * FROM pets';
+$stmt = $conn->prepare($query);
+$stmt->execute();
+// $data = $stmt->fetchAll(PDO:: FETCH_OBJ);
+// return $stmt->fetchAll();
+$qtd = $conn->query("SELECT count(*) FROM pets")->fetchColumn(); 
 
 $total_reg = "2"; // número de registros por página
 
@@ -15,15 +21,11 @@ $pc = $pagina;
 $inicio = $pc - 1;
 $inicio = $inicio * $total_reg;
 
-$id = $_SESSION["id_usuario"];
 
-$qtd = $conn->query("SELECT count(*) FROM pets WHERE user_id =$id")->fetchColumn(); 
-
-$query = 'SELECT * FROM pets WHERE user_id =:id LIMIT :inicio,:fim';
+$query = 'SELECT * FROM pets LIMIT :inicio,:fim';
 $stmt = $conn->prepare($query);
 $stmt->bindParam(":inicio", $inicio, PDO::PARAM_INT);
 $stmt->bindParam(":fim", $total_reg, PDO::PARAM_INT);
-$stmt->bindValue(":id", $id);
 $stmt->execute(); 
 $limite = $stmt->fetchAll(PDO:: FETCH_OBJ);
 // var_dump($limite);
@@ -38,7 +40,7 @@ $tp = $tr / $total_reg; // verifica o número total de páginas
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Meus Pets</title>
+        <title>Editar pets</title>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" 
 	      rel="stylesheet" id="bootstrap-css">
         <style type="text/css">
@@ -71,7 +73,7 @@ $tp = $tr / $total_reg; // verifica o número total de páginas
       <div class="col-xs-6 .col-sm-4">
           <div class="panel">
             <div class="painel-heading">
-                <h1>Meus Pets</h1>
+                <h1>Pets</h1>
             </div>
             <div class="panel-body">
                  <?php
@@ -110,19 +112,20 @@ $tp = $tr / $total_reg; // verifica o número total de páginas
          </table>
          <?php echo "Pagina " . $pc . "<br>"; ?>
          <?php 
-         // agora vamos criar os botões "Anterior e próximo"
-         $anterior = $pc -1;
-         $proximo = $pc +1;
-         if ($pc>1) {
-         echo " <a href='?pagina=$anterior'><- Anterior</a><br> ";
-         }
-         echo "|";
-         if ($pc<$tp) {
-         echo " <a href='?pagina=$proximo'>Próxima -></a><br>";
-         }
+          // agora vamos criar os botões "Anterior e próximo"
+          $anterior = $pc -1;
+          $proximo = $pc +1;
+          if ($pc>1) {
+          echo " <a href='?pagina=$anterior'><- Anterior</a><br> ";
+          }
+          echo "|";
+          if ($pc<$tp) {
+          echo " <a href='?pagina=$proximo'>Próxima -></a><br>";
+          }
 
+          $a = "./data.php";
         ?>
-         <a class="link" href="./data.php">
+         <a class="link" href="<?php echo $a;?>">
         <i class="fas fa-arrow-left"></i>
         Voltar
         </a>
@@ -131,6 +134,7 @@ $tp = $tr / $total_reg; // verifica o número total de páginas
       </div>
    </div>
 </div>
+  
 </body>
 </html>
 
